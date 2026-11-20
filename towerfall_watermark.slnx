@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="towerfall_watermark/towerfall_watermark.vcxproj" />
+  <Project Path="towerfall_watermark/towerfall_watermark.vcxproj" Id="a7fcd770-6ebb-4fd3-9b00-bfb2eee94be6" />
 </Solution>

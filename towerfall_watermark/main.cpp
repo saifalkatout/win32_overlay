@@ -1,14 +1,19 @@
 #include <windows.h>
-
+#include "HrError.h"
 #include "WatermarkWindow.h"
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int)
 {
-    // Must run before any window is created, including message boxes.
     SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 
     WatermarkWindow window;
-    if (!window.Create(hInstance)) {
+    try {
+        window.Create(hInstance);
+    }
+    catch (const HrError& e) {
+        wchar_t buf[512];
+        swprintf_s(buf, L"%hs failed: 0x%08X\n", e.message, e.hr);
+        OutputDebugStringW(buf);
         return 1;
     }
 
